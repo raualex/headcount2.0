@@ -12,13 +12,15 @@ it('matches the snapshot', () => {
   expect(wrapper).toMatchSnapshot();
 });
 
-it.skip('gives different classes based on data number', () => {
+it('gives class of: greater if above 0.5', () => {
   const wrapper = shallow(<Card
     key={'COLORADO'}
     schoolName={'COLORADO'}
-    schoolInfo={{'COLORADO': {2004: 0.25, 2007: 0.7, 2009: 0.5}}}
+    schoolInfo={{2007: 0.7}}
   />);
   
-  expect(wrapper.find('.data-line').hasClass('greater')).toEqual(true);
-  
+  expect(
+    wrapper.find('.data-list').children().first().hasClass('greater')
+  ).toEqual(true);  
 });
+

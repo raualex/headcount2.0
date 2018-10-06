@@ -14,8 +14,7 @@ class Search extends Component {
   handleChange = (event) => {
     this.setState({
       searchWord: event.target.value
-    });
-    this.props.searchForDistrict(this.state.searchWord);
+    }, () => this.props.searchForDistrict(this.state.searchWord));
   }
 
   render() {

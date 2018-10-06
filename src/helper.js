@@ -88,6 +88,18 @@ export default class DistrictRepository {
     } else if (!statKeys.includes(capName)) {
       return [];
     }
-    return matchOutput;
+  }
+
+  findAverage(district) {
+    let distCap = district.toUpperCase()
+    let foundDistrict = Object.values(this.stats[distCap])
+    return foundDistrict.reduce((acc, dataNum, index) => {
+      acc += dataNum
+      if (index === foundDistrict.length - 1) {
+        return Math.round((acc/foundDistrict.length)*1000)/1000
+      }
+      return acc
+    }, 0)
+    
   }
 }
