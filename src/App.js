@@ -10,29 +10,39 @@ class App extends Component {
     super();
 
     this.state = {
-      DistrictRepository: {}
+      DistrictRepository: {},
+      DistRepoObj: {}
     };
   }
 
   searchForDistrict = (word) => {
-    let repo = new DistrictRepository(kinderData);
-    console.log(repo.findAllMatches(word));
-    // this.setState({
-    //   DistrictRepository: repo.findAllMatches(word)
-    // })
+    let repo = this.state.DistRepoObj;
+    let filteredResults = repo.findAllMatches(word);
+    let finalObj = filteredResults.reduce((acc, districtObj) => {
+      let objKey = Object.keys(districtObj);
+      acc[objKey] = districtObj[objKey];
+      return acc;
+    }, {});
+    this.setState({
+      DistrictRepository: finalObj
+    });
   }
 
   componentDidMount() {
     let repo = new DistrictRepository(kinderData);
     this.setState({
-      DistrictRepository: repo.stats
+      DistrictRepository: repo.stats,
+      DistRepoObj: repo
     });
   }
 
   render() {
     const cardInfo = Object.keys(this.state.DistrictRepository);
     const cards = cardInfo.map((schoolDistrict) => {
-      return <Card key={schoolDistrict} schoolName={schoolDistrict} schoolInfo={this.state.DistrictRepository[schoolDistrict]}/>;
+      return <Card key={schoolDistrict} 
+        schoolName={schoolDistrict} 
+        schoolInfo={this.state.DistrictRepository[schoolDistrict]}
+      />;
     });
 
     return (
