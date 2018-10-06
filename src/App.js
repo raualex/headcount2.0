@@ -17,15 +17,15 @@ class App extends Component {
 
   searchForDistrict = (word) => {
     let repo = this.state.DistRepoObj;
-    let filteredResults = repo.findAllMatches(word)
+    let filteredResults = repo.findAllMatches(word);
     let finalObj = filteredResults.reduce((acc, districtObj) => {
-      let objKey = Object.keys(districtObj)
-      acc[objKey] = districtObj[objKey]
-      return acc
-    }, {})
+      let objKey = Object.keys(districtObj);
+      acc[objKey] = districtObj[objKey];
+      return acc;
+    }, {});
     this.setState({
       DistrictRepository: finalObj
-    })
+    });
   }
 
   componentDidMount() {
@@ -39,7 +39,10 @@ class App extends Component {
   render() {
     const cardInfo = Object.keys(this.state.DistrictRepository);
     const cards = cardInfo.map((schoolDistrict) => {
-      return <Card key={schoolDistrict} schoolName={schoolDistrict} schoolInfo={this.state.DistrictRepository[schoolDistrict]}/>;
+      return <Card key={schoolDistrict} 
+        schoolName={schoolDistrict} 
+        schoolInfo={this.state.DistrictRepository[schoolDistrict]}
+      />;
     });
 
     return (

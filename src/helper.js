@@ -50,14 +50,14 @@ export default class DistrictRepository {
   }
 
   searchForPrefix(word) {
-    let statKeys = Object.keys(this.stats)
+    let statKeys = Object.keys(this.stats);
     return statKeys.map((key) => {
       if (key.startsWith(word)) {
-        return true
+        return true;
       } else {
-        return false
+        return false;
       }
-    })
+    });
   }
 
   findAllMatches(name) {
@@ -81,13 +81,13 @@ export default class DistrictRepository {
         if (key === capName || key.startsWith(capName)) {
           acc.push({[key]: this.stats[key]});
         }
-        return acc
+        return acc;
       }, []);
       matchOutput = matchData2;
       return matchOutput;
     } else if (!statKeys.includes(capName)) {
       return [];
     }
-    return matchOutput
+    return matchOutput;
   }
 }

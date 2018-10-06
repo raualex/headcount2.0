@@ -11,11 +11,17 @@ class Card extends Component {
     const dataKeys = Object.keys(this.props.schoolInfo);
     const schoolData = dataKeys.map((year, index) => {
       if (this.props.schoolInfo[year] > 0.5) {
-        return <li key={Date.now() + index} className="greater data-line">{year}: {this.props.schoolInfo[year]}</li>;
+        return <li key={Date.now() + index} 
+          className="greater data-line">{year}: {this.props.schoolInfo[year]}
+        </li>;
       } else if (this.props.schoolInfo[year] < 0.5) {
-        return <li key={Date.now() + index} className="lesser data-line">{year}: {this.props.schoolInfo[year]}</li>;
+        return <li key={Date.now() + index} 
+          className="lesser data-line">{year}: {this.props.schoolInfo[year]}
+        </li>;
       } else if (this.props.schoolInfo[year] === 0.5) {
-        return <li key={Date.now() + index} className="equal data-line">{year}: {this.props.schoolInfo[year]}</li>;
+        return <li key={Date.now() + index} 
+          className="equal data-line">{year}: {this.props.schoolInfo[year]}
+        </li>;
       }
     });
 
