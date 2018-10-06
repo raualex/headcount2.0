@@ -10,12 +10,13 @@ class App extends Component {
     super();
 
     this.state = {
-      DistrictRepository: {}
+      DistrictRepository: {},
+      DistRepoObj: {}
     };
   }
 
   searchForDistrict = (word) => {
-    let repo = new DistrictRepository(kinderData);
+    let repo = this.state.DistRepoObj;
     let filteredResults = repo.findAllMatches(word)
     let finalObj = filteredResults.reduce((acc, districtObj) => {
       let objKey = Object.keys(districtObj)
@@ -30,7 +31,8 @@ class App extends Component {
   componentDidMount() {
     let repo = new DistrictRepository(kinderData);
     this.setState({
-      DistrictRepository: repo.stats
+      DistrictRepository: repo.stats,
+      DistRepoObj: repo
     });
   }
 
