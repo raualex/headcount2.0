@@ -13,8 +13,7 @@ class App extends Component {
     this.state = {
       DistrictRepository: {},
       DistRepoObj: {},
-      Card1: {},
-      Card2: {}
+      comparisonSchools: []
     };
   }
 
@@ -29,6 +28,21 @@ class App extends Component {
     this.setState({
       DistrictRepository: finalObj
     });
+  }
+
+  saveSchoolByClick = (schoolName) => {
+    let schoolArray = this.state.comparisonSchools
+    let schoolKey = schoolName
+
+    if (schoolArray.length < 2) {
+      schoolArray.push(schoolKey)
+    } else if (schoolArray.length === 2) {
+      schoolArray.shift()
+      schoolArray.push(schoolKey)
+    }
+    this.setState({
+      comparisonSchools: schoolArray
+    })
   }
 
   districtComparison = (district1, district2) => {
@@ -51,6 +65,7 @@ class App extends Component {
       return <Card key={schoolDistrict} 
         schoolName={schoolDistrict} 
         schoolInfo={this.state.DistrictRepository[schoolDistrict]}
+        saveSchoolByClick={this.saveSchoolByClick}
       />;
     });
 
@@ -60,8 +75,7 @@ class App extends Component {
         <Search searchForDistrict={this.searchForDistrict} />
         <ComparisonCard 
           districtComparison={this.districtComparison} 
-          card1={this.state.Card1}
-          card2={this.state.Card2}
+          comparisonSchools={this.state.comparisonSchools}
         />
         <div className="card-container">
           { cards }

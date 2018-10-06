@@ -2,7 +2,7 @@ import React from 'react';
 import './Card.css';
 import PropTypes from 'prop-types';
 
-const Card = ({schoolName, schoolInfo}) => {
+const Card = ({schoolName, schoolInfo, saveSchoolByClick}) => {
 
   const dataKeys = Object.keys(schoolInfo);
   const schoolData = dataKeys.map((year, index) => {
@@ -22,7 +22,7 @@ const Card = ({schoolName, schoolInfo}) => {
   });
 
   return (
-    <div className="card">
+    <div className="card" onClick={() => saveSchoolByClick(schoolName)}>
       <h3 className="card-title">{schoolName}</h3>
       <ul className="data-list">
         { schoolData }
@@ -33,7 +33,8 @@ const Card = ({schoolName, schoolInfo}) => {
 
 Card.propTypes = {
   schoolName: PropTypes.string.isRequired,
-  schoolInfo: PropTypes.object.isRequired
+  schoolInfo: PropTypes.object.isRequired,
+  saveSchoolByClick: PropTypes.func.isRequired
 };
 
 

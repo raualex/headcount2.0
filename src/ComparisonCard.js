@@ -8,9 +8,12 @@ class ComparisonCard extends Component {
     super(props);
 
     this.state = {
-      card1: props.card1,
-      card2: props.card2
+      comparisonSchools: props.comparisonSchools
     };
+  }
+
+  mapForRender(card) {
+
   }
 
   render() {
@@ -24,8 +27,7 @@ class ComparisonCard extends Component {
 
 ComparisonCard.propTypes = {
   districtComparison: PropTypes.func.isRequired,
-  card1: PropTypes.object,
-  card2: PropTypes.object
+  comparisonSchools: PropTypes.array
 };
 
 export default ComparisonCard;
