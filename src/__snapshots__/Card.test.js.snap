@@ -4,6 +4,7 @@ exports[`matches the snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Card
+    saveSchoolByClick={[Function]}
     schoolInfo={
         Object {
             "COLORADO": Object {
@@ -39,6 +40,7 @@ ShallowWrapper {
 </ul>,
       ],
       "className": "card",
+      "onClick": [Function],
     },
     "ref": null,
     "rendered": Array [
@@ -92,6 +94,7 @@ ShallowWrapper {
 </ul>,
         ],
         "className": "card",
+        "onClick": [Function],
       },
       "ref": null,
       "rendered": Array [

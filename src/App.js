@@ -30,37 +30,35 @@ class App extends Component {
     });
   }
 
-  handleSchoolArray = (arr, school) => {
-    if (arr.length === 1) {
-      // console.log('works 1')
-      arr.pop(school)
-      return arr
-    } else if (arr.length === 2) {
-      let solution = arr.find((schoolKey, index) => {
+  handleSchoolArray = (distArr, school) => {
+    if (distArr.length === 1) {
+      distArr.pop(school);
+      return distArr;
+    } else if (distArr.length === 2) {
+      let solution = distArr.find((schoolKey) => {
         if (schoolKey !== school) {
-          return schoolKey
+          return schoolKey;
         }
-      })
-      return [solution]
+      });
+      return [solution];
     }
   }
 
   saveSchoolByClick = (schoolName) => {
-    let schoolArray = this.state.comparisonSchools
-    let schoolKey = schoolName
+    let schoolArray = this.state.comparisonSchools;
+    let schoolKey = schoolName;
 
     if (schoolArray.length < 2 && !schoolArray.includes(schoolName)) {
-      schoolArray.push(schoolKey)
+      schoolArray.push(schoolKey);
     } else if (schoolArray.length <= 2 && schoolArray.includes(schoolName)) {
-      schoolArray = this.handleSchoolArray(schoolArray, schoolKey)
-      // console.log(schoolArray)
+      schoolArray = this.handleSchoolArray(schoolArray, schoolKey);
     } else if (schoolArray.length === 2) {
-      schoolArray.shift()
-      schoolArray.push(schoolKey)
+      schoolArray.shift();
+      schoolArray.push(schoolKey);
     }
     this.setState({
       comparisonSchools: schoolArray
-    })
+    });
   }
 
   componentDidMount() {

@@ -17,9 +17,9 @@ class ComparisonCard extends Component {
 
   mapForRender(cardArray) {
     if (cardArray.length === 1) {
-      console.log(cardArray)
+      console.log(cardArray);
     } else if (cardArray.length === 2) {
-      console.log(cardArray)
+      console.log(cardArray);
     }
   }
 

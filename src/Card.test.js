@@ -7,6 +7,7 @@ it('matches the snapshot', () => {
     key={'COLORADO'}
     schoolName={'COLORADO'}
     schoolInfo={{'COLORADO': {2004: 0.5}}}
+    saveSchoolByClick={jest.fn()}
   />);
 
   expect(wrapper).toMatchSnapshot();
@@ -17,6 +18,7 @@ it('gives class of: greater if above 0.5', () => {
     key={'COLORADO'}
     schoolName={'COLORADO'}
     schoolInfo={{2007: 0.7}}
+    saveSchoolByClick={jest.fn()}
   />);
   
   expect(
@@ -29,6 +31,7 @@ it('gives class of: lesser if below 0.5', () => {
     key={'COLORADO'}
     schoolName={'COLORADO'}
     schoolInfo={{2004: 0.25}}
+    saveSchoolByClick={jest.fn()}
   />);
 
   expect(
@@ -41,6 +44,7 @@ it('gives class of: equal if euqal to 0.5', () => {
     key={'COLORADO'}
     schoolName={'COLORADO'}
     schoolInfo={{2001: 0.5}}
+    saveSchoolByClick={jest.fn()}
   />);
 
   expect(
