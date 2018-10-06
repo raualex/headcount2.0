@@ -49,16 +49,16 @@ export default class DistrictRepository {
     }
   }
 
-  // searchForPrefix(word) {
-  //   let statKeys = Object.keys(this.stats)
-  //   return statKeys.map((key) => {
-  //     if (key.startsWith(word)) {
-  //       return true
-  //     } else {
-  //       return false
-  //     }
-  //   })
-  // }
+  searchForPrefix(word) {
+    let statKeys = Object.keys(this.stats)
+    return statKeys.map((key) => {
+      if (key.startsWith(word)) {
+        return true
+      } else {
+        return false
+      }
+    })
+  }
 
   findAllMatches(name) {
     let statKeys = Object.keys(this.stats);
@@ -71,21 +71,23 @@ export default class DistrictRepository {
 
     if (!name) {
       let matchData = statKeys.map((key) => {
-        return this.stats[key];
+        return {[key]: this.stats[key]};
       });
-      matchOutput = [...matchData];
+      matchOutput = matchData;
       return matchOutput;
-    } else if (statKeys.includes(capName)) {
-    // } else if(statKeys.includes(capName) || this.searchForPrefix(capName)) {
-      let matchData = statKeys.filter((key) => {
+
+    } else if (statKeys.includes(capName) || this.searchForPrefix(capName)) {
+      let matchData2 = statKeys.reduce((acc, key) => {
         if (key === capName || key.startsWith(capName)) {
-          return this.stats[key];
+          acc.push({[key]: this.stats[key]});
         }
-      });
-      matchOutput = [...matchData];
+        return acc
+      }, []);
+      matchOutput = matchData2;
       return matchOutput;
     } else if (!statKeys.includes(capName)) {
       return [];
     }
+    return matchOutput
   }
 }

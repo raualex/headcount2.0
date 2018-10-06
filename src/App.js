@@ -16,10 +16,15 @@ class App extends Component {
 
   searchForDistrict = (word) => {
     let repo = new DistrictRepository(kinderData);
-    console.log(repo.findAllMatches(word));
-    // this.setState({
-    //   DistrictRepository: repo.findAllMatches(word)
-    // })
+    let filteredResults = repo.findAllMatches(word)
+    let finalObj = filteredResults.reduce((acc, districtObj) => {
+      let objKey = Object.keys(districtObj)
+      acc[objKey] = districtObj[objKey]
+      return acc
+    }, {})
+    this.setState({
+      DistrictRepository: finalObj
+    })
   }
 
   componentDidMount() {
