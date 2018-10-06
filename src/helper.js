@@ -91,15 +91,26 @@ export default class DistrictRepository {
   }
 
   findAverage(district) {
-    let distCap = district.toUpperCase()
-    let foundDistrict = Object.values(this.stats[distCap])
+    let distCap = district.toUpperCase();
+    let foundDistrict = Object.values(this.stats[distCap]);
     return foundDistrict.reduce((acc, dataNum, index) => {
-      acc += dataNum
+      acc += dataNum;
       if (index === foundDistrict.length - 1) {
-        return Math.round((acc/foundDistrict.length)*1000)/1000
+        return Math.round((acc/foundDistrict.length)*1000)/1000;
       }
-      return acc
-    }, 0)
-    
+      return acc;
+    }, 0); 
+  }
+
+  compareDistrictAverages(district1, district2) {
+    let dist1 = district1.toUpperCase();
+    let dist2 = district2.toUpperCase();
+    let dist1avg = this.findAverage(district1);
+    let dist2avg = this.findAverage(district2);
+    let distRatio = Math.round((dist1avg/dist2avg)*1000)/1000;
+    return { [dist1]: dist1avg, 
+      [dist2]: dist2avg, 
+      compared: distRatio
+    };
   }
 }
