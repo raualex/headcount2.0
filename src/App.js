@@ -30,12 +30,30 @@ class App extends Component {
     });
   }
 
+  handleSchoolArray = (arr, school) => {
+    if (arr.length === 1) {
+      // console.log('works 1')
+      arr.pop(school)
+      return arr
+    } else if (arr.length === 2) {
+      let solution = arr.find((schoolKey, index) => {
+        if (schoolKey !== school) {
+          return schoolKey
+        }
+      })
+      return [solution]
+    }
+  }
+
   saveSchoolByClick = (schoolName) => {
     let schoolArray = this.state.comparisonSchools
     let schoolKey = schoolName
 
-    if (schoolArray.length < 2) {
+    if (schoolArray.length < 2 && !schoolArray.includes(schoolName)) {
       schoolArray.push(schoolKey)
+    } else if (schoolArray.length <= 2 && schoolArray.includes(schoolName)) {
+      schoolArray = this.handleSchoolArray(schoolArray, schoolKey)
+      // console.log(schoolArray)
     } else if (schoolArray.length === 2) {
       schoolArray.shift()
       schoolArray.push(schoolKey)
@@ -43,12 +61,6 @@ class App extends Component {
     this.setState({
       comparisonSchools: schoolArray
     })
-  }
-
-  districtComparison = (district1, district2) => {
-    let repo = this.state.DistRepoObj;
-    let avgResultInfo = repo.compareDistrictAverages(district1, district2);
-    console.log(avgResultInfo);
   }
 
   componentDidMount() {
@@ -74,7 +86,6 @@ class App extends Component {
         <h1 className="title">Welcome To Headcount 2.0</h1>
         <Search searchForDistrict={this.searchForDistrict} />
         <ComparisonCard 
-          districtComparison={this.districtComparison} 
           comparisonSchools={this.state.comparisonSchools}
         />
         <div className="card-container">
