@@ -79,8 +79,7 @@ class ComparisonCard extends Component {
       } else {
         return (
           <div>
-            <p>{this.state.comparisonSchools[0] || "BOOYAH!!"}</p>
-            <p>{this.state.comparisonSchools[1] || "BOOYAH!!"}</p>
+            <p></p>
           </div>
         )
       }
