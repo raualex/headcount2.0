@@ -30,16 +30,27 @@ class Card extends Component{
         </li>;
       }
     });
-
-    return (
-      <div className="card" 
-        onClick={() => this.props.saveSchoolByClick(this.props.schoolName)}>
-        <h3 className="card-title">{this.props.schoolName}</h3>
-        <ul className="data-list">
-          { schoolData }
-        </ul>
-      </div>
-    );
+    
+    if (!this.props.saveSchoolByClick) {
+      return (
+        <div className="comparison-card">
+          <h3 className="card-title">{this.props.schoolName}</h3>
+          <ul className="data-list">
+            { schoolData }
+          </ul>
+        </div>
+      );
+    } else {
+      return (
+        <div className="card" 
+          onClick={() => this.props.saveSchoolByClick(this.props.schoolName)}>
+          <h3 className="card-title">{this.props.schoolName}</h3>
+          <ul className="data-list">
+            { schoolData }
+          </ul>
+        </div>
+      );
+    }
   }
 };
 

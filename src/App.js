@@ -46,15 +46,14 @@ class App extends Component {
 
   saveSchoolByClick = (schoolName) => {
     let schoolArray = this.state.comparisonSchools;
-    let schoolKey = schoolName;
 
     if (schoolArray.length < 2 && !schoolArray.includes(schoolName)) {
-      schoolArray.push(schoolKey);
+      schoolArray.push(schoolName);
     } else if (schoolArray.length <= 2 && schoolArray.includes(schoolName)) {
-      schoolArray = this.handleSchoolArray(schoolArray, schoolKey);
+      schoolArray = this.handleSchoolArray(schoolArray, schoolName);
     } else if (schoolArray.length === 2) {
       schoolArray.shift();
-      schoolArray.push(schoolKey);
+      schoolArray.push(schoolName);
     }
     this.setState({
       comparisonSchools: schoolArray

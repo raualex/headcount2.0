@@ -20,6 +20,19 @@
   width: 70%;
 }
 
+.comparison-card {
+  align-items: center;
+  background-color: rgba(183,65,14,0.8);
+  border: solid 2px #000;
+  border-radius: 16%;
+  display: flex;
+  flex-direction: column;
+  height: 337.719px;
+  justify-content: center;
+  padding: 8px;
+  width: 321.25px;
+}
+
 .data-line {
   font-size: 1.25em;
 }
