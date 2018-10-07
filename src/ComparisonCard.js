@@ -60,7 +60,7 @@ class ComparisonCard extends Component {
         <div className="comparison-container">
           { cards[0] }
           <div className="compared">
-            <h3>{distName1}</h3>
+            <h3>{distName1}{': '}</h3>
             <h3>
               {this.state.schoolData.findAverage(distName1)}
             </h3>
@@ -68,7 +68,7 @@ class ComparisonCard extends Component {
               {distRatio.compared}
               {' ---->'}
             </h3>
-            <h3>{distName2}</h3>
+            <h3>{distName2}{': '}</h3>
             <h3>
               {this.state.schoolData.findAverage(distName2)}
             </h3>

@@ -11,9 +11,17 @@ class Card extends Component{
     }
 
   }
+
+  handleClick = () => {
+    this.props.saveSchoolByClick(this.props.schoolName)
+
+    if (this.props.schoolName) {
+    
+    console.log(this.props.checkSchoolArray(this.props.schoolName))
+    }
+  }
   
   render() {
-    // console.log(this.props.schoolInfo)
     const dataKeys = Object.keys(this.props.schoolInfo);
     const schoolData = dataKeys.map((year, index) => {
       if (this.props.schoolInfo[year] > 0.5) {
@@ -42,8 +50,9 @@ class Card extends Component{
       );
     } else {
       return (
-        <div className="card" 
-          onClick={() => this.props.saveSchoolByClick(this.props.schoolName)}>
+        <div className="card"
+          id={this.state.clicked.toString()} 
+          onClick={this.handleClick}>
           <h3 className="card-title">{this.props.schoolName}</h3>
           <ul className="data-list">
             { schoolData }
@@ -57,7 +66,8 @@ class Card extends Component{
 Card.propTypes = {
   schoolName: PropTypes.string.isRequired,
   schoolInfo: PropTypes.object.isRequired,
-  saveSchoolByClick: PropTypes.func
+  saveSchoolByClick: PropTypes.func,
+  checkSchoolArray: PropTypes.func
 };
 
 

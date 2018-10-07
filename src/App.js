@@ -60,6 +60,16 @@ class App extends Component {
     });
   }
 
+  checkSchoolArray = (schoolName) => {
+    if (this.state.comparisonSchools.includes(schoolName)) {
+      console.log('cool')
+      return true
+    } else {
+      console.log('WTF')
+      return false
+    }
+  }
+
   componentDidMount() {
     let repo = new DistrictRepository(kinderData);
     this.setState({
@@ -75,6 +85,7 @@ class App extends Component {
         schoolName={schoolDistrict} 
         schoolInfo={this.state.DistrictRepository[schoolDistrict]}
         saveSchoolByClick={this.saveSchoolByClick}
+        checkSchoolArray={this.checkSchoolArray}
       />;
     });
 

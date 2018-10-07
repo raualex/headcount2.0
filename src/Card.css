@@ -54,3 +54,7 @@
 .lesser {
   color: #f8e8a5;
 }
+
+#true {
+  border: solid 10px lime;
+}
