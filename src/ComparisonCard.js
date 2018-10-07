@@ -11,22 +11,14 @@ class ComparisonCard extends Component {
 
     this.state = {
       comparisonSchools: [],
-      schoolData: new DistrictRepository(kinderData),
+      schoolData: new DistrictRepository(kinderData)
     };
   }
 
   componentWillReceiveProps() {
     this.setState({
-      comparisonSchools: this.props.comparisonSchools,
-    })
-  }
-
-  mapForRender(cardArray) {
-    if (cardArray.length === 1) {
-      console.log(cardArray);
-    } else if (cardArray.length === 2) {
-      console.log(cardArray);
-    }
+      comparisonSchools: this.props.comparisonSchools
+    });
   }
 
   render() {
@@ -40,22 +32,22 @@ class ComparisonCard extends Component {
           schoolName={school} 
           schoolInfo={this.state.schoolData.stats[school]}
         />;
-      })
+      });
     }
     if (cards && cards.length === 1) {
-      distName1 = this.props.comparisonSchools[0]
+      distName1 = this.props.comparisonSchools[0];
       return ( 
         <div className="comparison-container">
           { cards[0] }
         </div>
-      )
+      );
     } else if (cards && cards.length === 2) {
-      distName1 = this.props.comparisonSchools[0]
-      distName2 = this.props.comparisonSchools[1]
+      distName1 = this.props.comparisonSchools[0];
+      distName2 = this.props.comparisonSchools[1];
       let distRatio = this.state.schoolData.compareDistrictAverages(
-                distName1,
-                distName2
-              )
+        distName1,
+        distName2
+      );
       return ( 
         <div className="comparison-container">
           { cards[0] }
@@ -75,14 +67,14 @@ class ComparisonCard extends Component {
           </div>
           { cards[1] }  
         </div>
-      )
-      } else {
-        return (
-          <div>
-            <p></p>
-          </div>
-        )
-      }
+      );
+    } else {
+      return (
+        <div>
+          <p></p>
+        </div>
+      );
+    }
   }
 }
 

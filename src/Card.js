@@ -8,16 +8,16 @@ class Card extends Component{
 
     this.state = {
       clicked: false
-    }
+    };
 
   }
 
   handleClick = () => {
-    this.props.saveSchoolByClick(this.props.schoolName)
+    this.props.saveSchoolByClick(this.props.schoolName);
 
     if (this.props.schoolName) {
     
-    console.log(this.props.checkSchoolArray(this.props.schoolName))
+      // console.log(this.props.checkSchoolArray(this.props.schoolName))
     }
   }
   
@@ -61,7 +61,7 @@ class Card extends Component{
       );
     }
   }
-};
+}
 
 Card.propTypes = {
   schoolName: PropTypes.string.isRequired,

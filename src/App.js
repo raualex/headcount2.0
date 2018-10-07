@@ -62,11 +62,11 @@ class App extends Component {
 
   checkSchoolArray = (schoolName) => {
     if (this.state.comparisonSchools.includes(schoolName)) {
-      console.log('cool')
-      return true
+      // console.log('cool')
+      return true;
     } else {
-      console.log('WTF')
-      return false
+      // console.log('WTF')
+      return false;
     }
   }
 
