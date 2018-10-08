@@ -15,9 +15,9 @@ class Card extends Component{
   handleClick = () => {
     this.props.saveSchoolByClick(this.props.schoolName);
 
-    this.setState({
-      clicked: !this.state.clicked
-    });
+    // this.setState({
+    //   clicked: !this.state.clicked
+    // });
   }
 
   // checkName = (schoolName) => {
