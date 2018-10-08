@@ -23,11 +23,11 @@ ShallowWrapper {
 >
           Welcome To Headcount 2.0
 </h1>,
-        <Search
-          searchForDistrict={[Function]}
-/>,
         <ComparisonCard
           comparisonSchools={Array []}
+/>,
+        <Search
+          searchForDistrict={[Function]}
 />,
         <div
           className="card-container"
@@ -3855,7 +3855,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
-          "searchForDistrict": [Function],
+          "comparisonSchools": Array [],
         },
         "ref": null,
         "rendered": null,
@@ -3866,7 +3866,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
-          "comparisonSchools": Array [],
+          "searchForDistrict": [Function],
         },
         "ref": null,
         "rendered": null,
@@ -12589,11 +12589,11 @@ ShallowWrapper {
 >
             Welcome To Headcount 2.0
 </h1>,
-          <Search
-            searchForDistrict={[Function]}
-/>,
           <ComparisonCard
             comparisonSchools={Array []}
+/>,
+          <Search
+            searchForDistrict={[Function]}
 />,
           <div
             className="card-container"
@@ -16421,7 +16421,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "searchForDistrict": [Function],
+            "comparisonSchools": Array [],
           },
           "ref": null,
           "rendered": null,
@@ -16432,7 +16432,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "comparisonSchools": Array [],
+            "searchForDistrict": [Function],
           },
           "ref": null,
           "rendered": null,
