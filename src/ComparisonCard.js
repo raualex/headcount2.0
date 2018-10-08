@@ -10,15 +10,8 @@ class ComparisonCard extends Component {
     super(props);
 
     this.state = {
-      comparisonSchools: [],
       schoolData: new DistrictRepository(kinderData)
     };
-  }
-
-  componentWillReceiveProps() {
-    this.setState({
-      comparisonSchools: this.props.comparisonSchools
-    });
   }
 
   render() {
@@ -26,7 +19,7 @@ class ComparisonCard extends Component {
     let distName1;
     let distName2;
 
-    if (this.state.comparisonSchools.length) {
+    if (this.props.comparisonSchools.length) {
       cards = this.props.comparisonSchools.map((school) => {
         return <Card key={school + Date.now()} 
           schoolName={school} 
