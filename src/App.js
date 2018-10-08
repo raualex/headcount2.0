@@ -87,10 +87,10 @@ class App extends Component {
     return (
       <div>
         <h1 className="title">Welcome To Headcount 2.0</h1>
-        <Search searchForDistrict={this.searchForDistrict} />
         <ComparisonCard 
           comparisonSchools={this.state.comparisonSchools}
         />
+        <Search searchForDistrict={this.searchForDistrict} />
         <div className="card-container">
           { cards }
         </div>
