@@ -39,7 +39,7 @@ ShallowWrapper {
           
 </ul>,
       ],
-      "className": "card",
+      "className": "card false",
       "onClick": [Function],
     },
     "ref": null,
@@ -93,7 +93,7 @@ ShallowWrapper {
             
 </ul>,
         ],
-        "className": "card",
+        "className": "card false",
         "onClick": [Function],
       },
       "ref": null,

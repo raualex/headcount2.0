@@ -13,7 +13,8 @@ class App extends Component {
     this.state = {
       DistrictRepository: {},
       DistRepoObj: {},
-      comparisonSchools: []
+      comparisonSchools: [],
+      oldSchool: ''
     };
   }
 
@@ -52,22 +53,15 @@ class App extends Component {
     } else if (schoolArray.length <= 2 && schoolArray.includes(schoolName)) {
       schoolArray = this.handleSchoolArray(schoolArray, schoolName);
     } else if (schoolArray.length === 2) {
-      schoolArray.shift();
+      let oldSchool = schoolArray.shift();
+      this.setState({
+        oldSchool: oldSchool
+      });
       schoolArray.push(schoolName);
     }
     this.setState({
       comparisonSchools: schoolArray
     });
-  }
-
-  checkSchoolArray = (schoolName) => {
-    if (this.state.comparisonSchools.includes(schoolName)) {
-      // console.log('cool')
-      return true;
-    } else {
-      // console.log('WTF')
-      return false;
-    }
   }
 
   componentDidMount() {
@@ -85,7 +79,8 @@ class App extends Component {
         schoolName={schoolDistrict} 
         schoolInfo={this.state.DistrictRepository[schoolDistrict]}
         saveSchoolByClick={this.saveSchoolByClick}
-        checkSchoolArray={this.checkSchoolArray}
+        comparisonSchools={this.state.comparisonSchools}
+        oldSchool={this.state.oldSchool}
       />;
     });
 

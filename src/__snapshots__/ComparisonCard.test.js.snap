@@ -4,7 +4,12 @@ exports[`matches the snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <ComparisonCard
-    districtComparison={[Function]}
+    comparisonSchools={
+        Array [
+            "COLORADO",
+            "ACADEMY 20",
+          ]
+    }
 />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -19,20 +24,16 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": <p>
-        BOOOYAH
-</p>,
+      "children": <p />,
     },
     "ref": null,
     "rendered": Object {
       "instance": null,
       "key": undefined,
       "nodeType": "host",
-      "props": Object {
-        "children": "BOOOYAH",
-      },
+      "props": Object {},
       "ref": null,
-      "rendered": "BOOOYAH",
+      "rendered": null,
       "type": "p",
     },
     "type": "div",
@@ -43,20 +44,16 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": <p>
-          BOOOYAH
-</p>,
+        "children": <p />,
       },
       "ref": null,
       "rendered": Object {
         "instance": null,
         "key": undefined,
         "nodeType": "host",
-        "props": Object {
-          "children": "BOOOYAH",
-        },
+        "props": Object {},
         "ref": null,
-        "rendered": "BOOOYAH",
+        "rendered": null,
         "type": "p",
       },
       "type": "div",
